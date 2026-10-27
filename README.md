@@ -2,20 +2,16 @@
 
 Wrap an asynchronous operation with a PostgreSQL session advisory lock. Processes connected to the same database and using the same two-part key serialize their work, even when they use different connection pools.
 
-**Initial implementation for review. No npm release has been published from this repository.**
-
 ## Requirements and installation
 
 Node.js 22.13 or newer, PostgreSQL, and `pg` 8.23 or newer within major version 8. CI uses Node.js 24 and PostgreSQL 17.
-
-After the initial release is approved and published:
 
 ```sh
 npm install @taleland/pg-advisory-lock pg
 npm install --save-dev @types/pg
 ```
 
-The package is ESM and includes TypeScript declarations. During initial review, use the local checkout with `npm ci` and `npm run build`.
+The package is ESM and includes TypeScript declarations.
 
 ## Usage
 
@@ -89,10 +85,14 @@ npm test
 npm pack --dry-run
 ```
 
-`npm run test:unit` checks argument forwarding and cleanup/error handling. `npm run test:integration` requires Docker and starts an isolated PostgreSQL container to verify serialization across separate pools, independent keys, and reacquisition after failure. Build before running tests. The published tarball includes only compiled library code and declarations, README, and changelog.
+`npm run test:unit` checks argument forwarding and cleanup/error handling. `npm run test:integration` requires Docker and starts an isolated PostgreSQL container to verify serialization across separate pools, independent keys, and reacquisition after failure. Build before running tests. The published tarball includes only compiled library code and declarations, README, changelog, and license.
 
-## Release preparation
+## Releases
 
 Build, lint, Conventional Commit PR checks, Dependabot, and semantic-release follow `taleland/nestjs-auth0`. `AGENTS.md` is copied unchanged, including the local Conventional Commits specification.
 
-Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation, choose the package license (currently `UNLICENSED`), and configure npm Trusted Publishing for `taleland/pg-advisory-lock`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
+Releases from `main` are versioned automatically with semantic-release and Conventional Commits. npm Trusted Publishing is configured for `taleland/pg-advisory-lock`, workflow `publish.yml`. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. The repository variable `NPM_PUBLISH_ENABLED` must be `true` to run publishing.
+
+## License
+
+[Apache License 2.0](LICENSE).
