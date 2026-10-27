@@ -1,0 +1,76 @@
+{
+  "name": "@taleland/pg-advisory-lock",
+  "description": "Serialize asynchronous operations across PostgreSQL clients with session advisory locks.",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taleland/pg-advisory-lock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taleland/pg-advisory-lock/issues"
+  },
+  "homepage": "https://github.com/taleland/pg-advisory-lock#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "keywords": [
+    "postgresql",
+    "advisory-lock"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./dist ./tsconfig.tsbuildinfo",
+    "compile": "tsc -b",
+    "build": "npm run clean && npm run compile",
+    "build:watch": "tsc -b --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "node --test dist/test/*.test.js",
+    "test:integration": "node --test dist/test/integration/*.test.js",
+    "prepack": "npm run build",
+    "release": "semantic-release",
+    "release:dry-run": "semantic-release --dry-run"
+  },
+  "peerDependencies": {
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@taleland/tsconfig": "^1.0.0",
+    "@types/node": "^26.6.3",
+    "@types/sinon": "^21.0.0",
+    "eslint": "^10.4.0",
+    "neostandard": "^0.14.1",
+    "sinon": "^22.0.0",
+    "testcontainers": "^12.0.0",
+    "typescript": "6.0.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.5",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "conventional-changelog-conventionalcommits": "^9.3.0",
+    "semantic-release": "^25.0.3",
+    "pg": "^8.23.0",
+    "@types/pg": "^8.23.1"
+  }
+}
