@@ -89,10 +89,14 @@ npm test
 npm pack --dry-run
 ```
 
-`npm run test:unit` checks argument forwarding and cleanup/error handling. `npm run test:integration` requires Docker and starts an isolated PostgreSQL container to verify serialization across separate pools, independent keys, and reacquisition after failure. Build before running tests. The published tarball includes only compiled library code and declarations, README, and changelog.
+`npm run test:unit` checks argument forwarding and cleanup/error handling. `npm run test:integration` requires Docker and starts an isolated PostgreSQL container to verify serialization across separate pools, independent keys, and reacquisition after failure. Build before running tests. The published tarball includes only compiled library code and declarations, README, changelog, and license.
 
 ## Release preparation
 
 Build, lint, Conventional Commit PR checks, Dependabot, and semantic-release follow `taleland/nestjs-auth0`. `AGENTS.md` is copied unchanged, including the local Conventional Commits specification.
 
-Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation, choose the package license (currently `UNLICENSED`), and configure npm Trusted Publishing for `taleland/pg-advisory-lock`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
+Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation and configure npm Trusted Publishing for `taleland/pg-advisory-lock`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
+
+## License
+
+[Apache License 2.0](LICENSE).
