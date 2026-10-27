@@ -1,8 +1,11 @@
 import neostandard, { resolveIgnoresFromGitignore } from 'neostandard';
 
-export default neostandard({
-  ignores: resolveIgnoresFromGitignore(),
-  noJsx: true,
-  semi: true,
-  ts: true,
-});
+export default [
+  { ignores: ['dist/**'] },
+  ...neostandard({
+    ignores: resolveIgnoresFromGitignore(),
+    noJsx: true,
+    semi: true,
+    ts: true,
+  }),
+];
