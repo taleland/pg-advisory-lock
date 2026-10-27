@@ -96,7 +96,3 @@ npm pack --dry-run
 Build, lint, Conventional Commit PR checks, Dependabot, and semantic-release follow `taleland/nestjs-auth0`. `AGENTS.md` is copied unchanged, including the local Conventional Commits specification.
 
 Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation, choose the package license (currently `UNLICENSED`), and configure npm Trusted Publishing for `taleland/pg-advisory-lock`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
-
-## Source
-
-Extracted from `VanguardX-Lab/vg-backend`, `src/packages/pg-advisory-lock`, at commit `ce750a74ef950e75e4e84f7a200ad0fbcb73ec28`. The original public API is retained. Error tracking now uses a separate flag so a callback rejecting with `undefined` cannot be mistaken for success.
