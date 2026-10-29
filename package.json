@@ -39,9 +39,9 @@
   ],
   "scripts": {
     "clean": "rm -rf ./dist ./tsconfig.tsbuildinfo",
-    "compile": "tsc -b",
+    "compile": "node node_modules/typescript-compiler/bin/tsc -b",
     "build": "npm run clean && npm run compile",
-    "build:watch": "tsc -b --watch",
+    "build:watch": "node node_modules/typescript-compiler/bin/tsc -b --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "npm run test:unit && npm run test:integration",
@@ -72,6 +72,7 @@
     "conventional-changelog-conventionalcommits": "^10.4.1",
     "semantic-release": "^25.0.3",
     "pg": "^8.23.0",
-    "@types/pg": "^8.23.1"
+    "@types/pg": "^8.23.1",
+    "typescript-compiler": "npm:typescript@7.0.2"
   }
 }
