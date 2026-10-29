@@ -39,9 +39,9 @@
   ],
   "scripts": {
     "clean": "rm -rf ./dist ./tsconfig.tsbuildinfo",
-    "compile": "tsc -b",
+    "compile": "node node_modules/typescript-compiler/bin/tsc -b",
     "build": "npm run clean && npm run compile",
-    "build:watch": "tsc -b --watch",
+    "build:watch": "node node_modules/typescript-compiler/bin/tsc -b --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "npm run test:unit && npm run test:integration",
@@ -57,21 +57,22 @@
   "devDependencies": {
     "@taleland/tsconfig": "^1.0.0",
     "@types/node": "^26.6.3",
-    "@types/sinon": "^21.0.0",
+    "@types/sinon": "^22.0.1",
     "eslint": "^10.4.0",
     "neostandard": "^0.14.1",
     "sinon": "^22.0.0",
     "testcontainers": "^12.0.0",
-    "typescript": "7.0.2",
-    "@semantic-release/changelog": "^6.0.3",
+    "typescript": "6.0.2",
+    "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/git": "^11.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
-    "conventional-changelog-conventionalcommits": "^9.3.0",
+    "conventional-changelog-conventionalcommits": "^10.4.1",
     "semantic-release": "^25.0.3",
     "pg": "^8.23.0",
-    "@types/pg": "^8.23.1"
+    "@types/pg": "^8.23.1",
+    "typescript-compiler": "npm:typescript@7.0.2"
   }
 }

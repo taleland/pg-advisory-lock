@@ -77,6 +77,10 @@ The function reserves one pool client for the session lock, awaits the operation
 
 ## Development
 
+Builds use TypeScript 7 through the `typescript-compiler` npm alias. The separate
+`typescript` 6 dependency supplies the legacy compiler API required by neostandard.
+Use `npm run build` or `npm run build:watch` to select the build compiler explicitly.
+
 ```sh
 npm ci
 npm run lint
